@@ -2,6 +2,15 @@
 
 import { useCallback } from "react";
 import { useStoredState } from "../_hooks/useStorage";
+import {
+  Button,
+  Group,
+  Title,
+  Text,
+  Divider,
+  Stack,
+  Space,
+} from "@mantine/core";
 
 const TurnTracker: React.FC = () => {
   const [actions, setActions] = useStoredState("actions", 0);
@@ -14,13 +23,18 @@ const TurnTracker: React.FC = () => {
   }, [setActions, setCoins, setBuys]);
 
   return (
-    <div className="flex flex-col">
-      <h2>Turn Tracker</h2>
-      <button onClick={endTurn}>End turn</button>
+    <Stack gap="md">
+      <Group justify="space-between">
+        <Title order={2} style={{ weight: "1" }}>
+          Turn Tracker
+        </Title>
+        <Button onClick={endTurn}>End turn</Button>
+      </Group>
+      <Space h="lg" />
       <TrackerRow label="Actions" value={actions} setValue={setActions} />
       <TrackerRow label="Coins" value={coins} setValue={setCoins} />
       <TrackerRow label="Buys" value={buys} setValue={setBuys} />
-    </div>
+    </Stack>
   );
 };
 
@@ -31,17 +45,22 @@ interface TrackerRowProps {
 }
 
 const TrackerRow: React.FC<TrackerRowProps> = ({ label, value, setValue }) => {
-  const decrement = () => setValue(Math.max(0, value - 1));
-  const increment = () => setValue(value + 1);
+  function decrementBy(amount: number) {
+    setValue(Math.max(0, value - amount));
+  }
+  function incrementBy(amount: number) {
+    setValue(value + amount);
+  }
   return (
-    <>
-      <h3>{label}</h3>
-      <div className="flex items-center justify-center">
-        <button onClick={decrement}>-</button>
-        <span>{value}</span>
-        <button onClick={increment}>+</button>
-      </div>
-    </>
+    <Group justify="center" align="baseline" w="100%">
+      <Button onClick={() => decrementBy(2)}>-2</Button>
+      <Button onClick={() => decrementBy(1)}>-1</Button>
+      <Text style={{ flexGrow: 1, textAlign: "center" }}>
+        {label}: {value}
+      </Text>
+      <Button onClick={() => incrementBy(1)}>+1</Button>
+      <Button onClick={() => incrementBy(2)}>+2</Button>
+    </Group>
   );
 };
 

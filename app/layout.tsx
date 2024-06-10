@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Roboto_Flex } from "next/font/google";
-import "./globals.css";
 
-const inter = Roboto_Flex({ subsets: ["latin"] });
+import "@mantine/core/styles.css";
+import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+import { theme } from "./theme";
 
 export const metadata: Metadata = {
   title: "PocketDom",
@@ -16,7 +16,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <ColorSchemeScript />
+      </head>
+      <body>
+        <MantineProvider defaultColorScheme="auto" theme={theme}>
+          {children}
+        </MantineProvider>
+      </body>
     </html>
   );
 }
