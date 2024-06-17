@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 import "@mantine/core/styles.css";
-import { ColorSchemeScript, MantineProvider } from "@mantine/core";
-import { theme } from "./theme";
+import { ColorSchemeScript } from "@mantine/core";
+import NavRoot from "./_components/NavRoot";
 
 export const metadata: Metadata = {
   title: "PocketDom",
@@ -20,9 +20,7 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider defaultColorScheme="auto" theme={theme}>
-          {children}
-        </MantineProvider>
+        <NavRoot>{children}</NavRoot>
       </body>
     </html>
   );

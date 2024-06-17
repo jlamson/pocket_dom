@@ -1,23 +1,27 @@
-import {Boon} from "./boon";
-import {Card} from "./card";
-import {DominionSet} from "./dominion-set";
-import {Event} from "./event";
-import {Landmark} from "./landmark";
-import {Project} from "./project";
-import {SetId} from "./set-id";
-import {SupplyCard} from "./supply-card";
-import {Way} from "./way";
-import {Ally} from "./ally";
-import {Trait} from "./trait";
+import { Boon } from "./boon";
+import { Card } from "./card";
+import { DominionSet } from "./dominion-set";
+import { Event } from "./event";
+import { Landmark } from "./landmark";
+import { Project } from "./project";
+import { SetId } from "./set-id";
+import { SupplyCard } from "./supply-card";
+import { Way } from "./way";
+import { Ally } from "./ally";
+import { Trait } from "./trait";
+import { allSets } from "../dominion-content";
 
 declare global {
-  interface Window { DominionSets: any; }
+  interface Window {
+    DominionSets: any;
+  }
 }
 
 export class DominionSets {
-
-  static readonly sets: {[key in SetId]?: DominionSet} = DominionSets.createSets();
-  static readonly cards: {[index: string]: Card} = DominionSets.createCardMap();
+  static readonly sets: { [key in SetId]?: DominionSet } =
+    DominionSets.createSets();
+  static readonly cards: { [index: string]: Card } =
+    DominionSets.createCardMap();
 
   public static convertToSetId(stringSetId: string) {
     const setId = DominionSets.convertToSetIdSafe(stringSetId);
@@ -106,7 +110,7 @@ export class DominionSets {
     }
     return card;
   }
-  
+
   public static getWayById(cardId: string): Way {
     const card = DominionSets.getCardById(cardId);
     if (!(card instanceof Way)) {
@@ -115,7 +119,7 @@ export class DominionSets {
     return card;
   }
 
-  public static getTraitById(cardId: string) : Trait {
+  public static getTraitById(cardId: string): Trait {
     const card = DominionSets.getCardById(cardId);
     if (!(card instanceof Trait)) {
       throw new Error(`Card id (${cardId}) does not refer to an trait`);
@@ -132,28 +136,28 @@ export class DominionSets {
   }
 
   private static createSets() {
-    const setIds = Object.keys(window.DominionSets) as SetId[];
-    const sets: {[key in SetId]?: DominionSet} = {};
+    const setIds = Object.keys(allSets) as SetId[];
+    const sets: { [key in SetId]?: DominionSet } = {};
     for (let setId of setIds) {
-      sets[setId] = DominionSet.fromJson(window.DominionSets[setId]);
+      sets[setId] = DominionSet.fromJson(allSets[setId]);
     }
     return sets;
   }
 
   private static createCardMap() {
-    const cards: {[index: string]: Card} = {};
+    const cards: { [index: string]: Card } = {};
     const setIds = Object.keys(DominionSets.sets);
     for (let setId of setIds) {
       const set = DominionSets.sets[setId as SetId] as DominionSet;
-      const cardsFromSet: Card[] = 
-          (set.supplyCards as Card[]).concat(
-            set.events, 
-            set.landmarks, 
-            set.projects, 
-            set.ways, 
-            set.boons, 
-            set.allies, 
-            set.traits);
+      const cardsFromSet: Card[] = (set.supplyCards as Card[]).concat(
+        set.events,
+        set.landmarks,
+        set.projects,
+        set.ways,
+        set.boons,
+        set.allies,
+        set.traits
+      );
       for (let card of cardsFromSet) {
         cards[card.id] = card;
         if (!cards[card.shortId]) {
