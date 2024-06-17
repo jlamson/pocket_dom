@@ -10,6 +10,7 @@ import {
   Divider,
   Stack,
   Space,
+  NumberInput,
 } from "@mantine/core";
 
 const TurnTracker: React.FC = () => {
@@ -23,16 +24,17 @@ const TurnTracker: React.FC = () => {
   }, [setActions, setCoins, setBuys]);
 
   return (
-    <Stack gap="md">
+    <Stack gap="xl" justify="space-around">
       <Group justify="space-between">
         <Title order={2} style={{ weight: "1" }}>
           Turn Tracker
         </Title>
         <Button onClick={endTurn}>End turn</Button>
       </Group>
-      <Space h="lg" />
       <TrackerRow label="Actions" value={actions} setValue={setActions} />
+      <Space h="md" />
       <TrackerRow label="Coins" value={coins} setValue={setCoins} />
+      <Space h="md" />
       <TrackerRow label="Buys" value={buys} setValue={setBuys} />
     </Stack>
   );
@@ -51,16 +53,40 @@ const TrackerRow: React.FC<TrackerRowProps> = ({ label, value, setValue }) => {
   function incrementBy(amount: number) {
     setValue(value + amount);
   }
+  const onNumberInputChange = (value: number | string) => {
+    parseInt(value as string)
+      ? setValue(parseInt(value as string))
+      : setValue(0);
+  };
+  const buttonStyle = { flexGrow: 1 };
   return (
-    <Group justify="center" align="baseline" w="100%">
-      <Button onClick={() => decrementBy(2)}>-2</Button>
-      <Button onClick={() => decrementBy(1)}>-1</Button>
-      <Text style={{ flexGrow: 1, textAlign: "center" }}>
-        {label}: {value}
-      </Text>
-      <Button onClick={() => incrementBy(1)}>+1</Button>
-      <Button onClick={() => incrementBy(2)}>+2</Button>
-    </Group>
+    <Stack style={{ flexGrow: 1 }} gap="sm">
+      <Group justify="flex-start">
+        <Title order={3} style={{ textAlign: "center" }}>
+          {label}
+        </Title>
+        <NumberInput
+          value={value}
+          onChange={onNumberInputChange}
+          size="xl"
+          style={{ flexGrow: 1 }}
+        />
+      </Group>
+      <Group justify="center" align="baseline" w="100%">
+        <Button style={buttonStyle} h="4rem" onClick={() => decrementBy(2)}>
+          -2
+        </Button>
+        <Button style={buttonStyle} h="4rem" onClick={() => decrementBy(1)}>
+          -1
+        </Button>
+        <Button style={buttonStyle} h="4rem" onClick={() => incrementBy(1)}>
+          +1
+        </Button>
+        <Button style={buttonStyle} h="4rem" onClick={() => incrementBy(2)}>
+          +2
+        </Button>
+      </Group>
+    </Stack>
   );
 };
 
