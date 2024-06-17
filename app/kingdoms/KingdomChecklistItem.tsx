@@ -11,7 +11,7 @@ import { Card } from "../_data/dominion/card";
 export const KingdomChecklistItem: React.FC<{ kingdom: DominionKingdom }> = ({
   kingdom,
 }) => {
-  const [checked, setChecked] = useStoredState(kingdom.name, false);
+  const [checked, setChecked] = useStoredState(kingdom.id, false);
   const sets = useMemo(
     () => kingdom.setIds.map((setId) => DominionSets.getSetById(setId)),
     [kingdom]

@@ -3,20 +3,19 @@
 import {
   Checkbox,
   MantineProvider,
-  MultiSelect,
   Select,
   Space,
   Stack,
   createTheme,
 } from "@mantine/core";
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { DominionKingdoms } from "../_data/dominion/dominion-kingdoms";
 import { DominionSet } from "../_data/dominion/dominion-set";
 import { DominionSets } from "../_data/dominion/dominion-sets";
+import { SetId } from "../_data/dominion/set-id";
+import { useStorage } from "../_hooks/useStorage";
 import { KingdomChecklistItem } from "./KingdomChecklistItem";
 import classes from "./KingdomList.module.css";
-import { useStoredState } from "../_hooks/useStorage";
-import { SetId } from "../_data/dominion/set-id";
 
 const theme = createTheme({
   components: {
@@ -27,24 +26,33 @@ const theme = createTheme({
 const sets: DominionSet[] = DominionSets.getAllSets();
 
 export const KingdomList: React.FC = () => {
-  const [selectedSet, setSelectedSet] = useStoredState<SetId>(
-    "selectedSet",
+  const storage = useStorage();
+  const [selectedSet, setSelectedSet] = useState<SetId | "random">(
     SetId.BASE_SET
   );
 
   const sets = useMemo(() => DominionSets.getAllSets(), []);
 
   const kingdoms = useMemo(() => {
-    return DominionKingdoms.kingdoms[selectedSet] || [];
-  }, [selectedSet]);
-
+    if (selectedSet === "random") {
+      const allKingdoms = Object.values(DominionKingdoms.kingdoms)
+        .flat()
+        .filter((kingdom) => storage.getItem(kingdom.id) !== "false");
+      return [allKingdoms[Math.floor(Math.random() * allKingdoms.length)]];
+    } else {
+      return DominionKingdoms.kingdoms[selectedSet] || [];
+    }
+  }, [selectedSet, storage]);
   return (
     <MantineProvider theme={theme}>
       <Select
-        data={sets.map((set) => ({
-          value: set.setId,
-          label: set.name,
-        }))}
+        data={[
+          { value: "random", label: "Random" },
+          ...sets.map((set) => ({
+            value: set.setId,
+            label: set.name,
+          })),
+        ]}
         checkIconPosition="left"
         value={selectedSet}
         onChange={(selected) => setSelectedSet(selected as SetId)}
@@ -52,7 +60,7 @@ export const KingdomList: React.FC = () => {
       <Space h="xl" />
       <Stack gap="xl">
         {kingdoms.map((kingdom) => (
-          <KingdomChecklistItem key={kingdom.name} kingdom={kingdom} />
+          <KingdomChecklistItem key={kingdom.id} kingdom={kingdom} />
         ))}
       </Stack>
     </MantineProvider>

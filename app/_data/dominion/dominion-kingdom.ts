@@ -33,24 +33,13 @@ export class DominionKingdom {
     );
   }
 
-  // A function to generate a unique id for this kingdom based on a combination
-  // of all of it's fields.
+  private _id: string | undefined;
+
   public get id(): string {
-    return (
-      this.name +
-      this.setIds.join("") +
-      this.supplyIds.join("") +
-      (this.baneCardId || "") +
-      this.eventIds.join("") +
-      this.landmarkIds.join("") +
-      this.projectIds.join("") +
-      this.boonIds.join("") +
-      this.wayIds.join("") +
-      this.allyIds.join("") +
-      this.traitIds.join("") +
-      this.metadata.useColonies +
-      this.metadata.useShelters
-    );
+    if (!this._id) {
+      this._id = [this.name, ...this.setIds.sort()].join("_");
+    }
+    return this._id;
   }
 }
 
