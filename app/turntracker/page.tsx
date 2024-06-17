@@ -1,4 +1,4 @@
-import TurnTracker from "../_components/TurnTracker";
+import TurnTracker from "./TurnTracker";
 
 export default function Page() {
   return <TurnTracker />;

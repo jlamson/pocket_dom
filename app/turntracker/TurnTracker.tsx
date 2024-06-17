@@ -61,7 +61,7 @@ const TrackerRow: React.FC<TrackerRowProps> = ({ label, value, setValue }) => {
   const buttonStyle = { flexGrow: 1 };
   return (
     <Stack style={{ flexGrow: 1 }} gap="sm">
-      <Group justify="flex-start">
+      <Group justify="stretch">
         <Title order={3} style={{ textAlign: "center" }}>
           {label}
         </Title>
