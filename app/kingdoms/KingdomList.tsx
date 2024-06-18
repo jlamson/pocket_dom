@@ -47,7 +47,14 @@ export const KingdomList: React.FC = () => {
     setSpecificKingdom(null);
   }, [selectedSets, setSpecificKingdom]);
 
-  const sets = useMemo(() => DominionSets.getAllSets(), []);
+  const sets = useMemo(
+    () =>
+      DominionSets.getAllSets().filter(
+        (set) =>
+          set.setId !== SetId.GUILDSCORNUCOPIA && set.setId !== SetId.PROMOS
+      ),
+    []
+  );
   const filteredKingdoms = useMemo(
     () => DominionKingdoms.getKingdomsForSets(selectedSets),
     [selectedSets]
