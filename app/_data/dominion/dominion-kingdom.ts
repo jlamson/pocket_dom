@@ -12,7 +12,7 @@ export class DominionKingdom {
     readonly boonIds: string[],
     readonly wayIds: string[],
     readonly allyIds: string[],
-    readonly traitIds: string[],
+    readonly traitIds: [string, string][],
     readonly metadata: Metadata
   ) {}
 

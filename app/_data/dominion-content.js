@@ -16005,7 +16005,7 @@ export const allKingdoms = {
           "plunder_silvermine",
           "plunder_wealthyvillage",
         ],
-        traits: ["plunder_trait_hasty"],
+        traits: [["plunder_trait_hasty", "plunder_firstmate"]],
       },
       {
         name: "Jetsam",
@@ -16023,7 +16023,7 @@ export const allKingdoms = {
           "plunder_stowaway",
         ],
         events: ["plunder_event_prepare"],
-        traits: ["plunder_trait_pious"],
+        traits: [["plunder_trait_pious", "plunder_grotto"]],
       },
       {
         name: "Basic Looting",
@@ -16040,7 +16040,7 @@ export const allKingdoms = {
           "plunder_pilgrim",
           "plunder_sackofloot",
         ],
-        traits: ["plunder_trait_tireless"],
+        traits: [["plunder_trait_tireless", "plunder_harborvillage"]],
       },
       {
         name: "Voodoo",
@@ -16058,7 +16058,7 @@ export const allKingdoms = {
           "plunder_shaman",
         ],
         events: ["plunder_event_maelstrom"],
-        traits: ["plunder_trait_cursed"],
+        traits: [["plunder_trait_cursed", "baseset2_festival"]],
       },
       {
         name: "Breaking Eggs",
@@ -16075,7 +16075,7 @@ export const allKingdoms = {
           "plunder_maroon",
           "plunder_quartermaster",
         ],
-        traits: ["plunder_trait_reckless"],
+        traits: [["plunder_trait_reckless", "plunder_maroon"]],
       },
       {
         name: "Landlubbers",
@@ -16093,7 +16093,7 @@ export const allKingdoms = {
           "plunder_wealthyvillage",
         ],
         events: ["plunder_event_avoid"],
-        traits: ["plunder_trait_friendly"],
+        traits: [["plunder_trait_friendly", "intrigue2_conspirator"]],
       },
       {
         name: "Wine-dark Seas",
@@ -16110,7 +16110,7 @@ export const allKingdoms = {
           "seaside2_sailor",
           "seaside2_seawitch",
         ],
-        traits: ["plunder_trait_cheap"],
+        traits: [["plunder_trait_cheap", "plunder_frigate"]],
       },
       {
         name: "Treasure Island",
@@ -16128,7 +16128,7 @@ export const allKingdoms = {
           "seaside2_treasuremap",
         ],
         events: ["plunder_event_launch"],
-        traits: ["plunder_trait_inherited"],
+        traits: [["plunder_trait_inherited", "seaside2_treasuremap"]],
       },
       {
         name: "Special Delivery",
@@ -16146,7 +16146,7 @@ export const allKingdoms = {
           "plunder_trickster",
         ],
         events: ["plunder_event_deliver"],
-        traits: ["plunder_trait_cursed"],
+        traits: [["plunder_trait_cursed", "alchemy_golem"]],
       },
       {
         name: "Pretty Trinkets",
@@ -16163,7 +16163,7 @@ export const allKingdoms = {
           "prosperity2_tiara",
           "prosperity2_warchest",
         ],
-        traits: ["plunder_trait_fated"],
+        traits: [["plunder_trait_fated", "plunder_rope"]],
         metadata: { colonies: true },
       },
       {
@@ -16182,7 +16182,7 @@ export const allKingdoms = {
           "prosperity2_workersvillage",
         ],
         events: ["plunder_event_looting"],
-        traits: ["plunder_trait_fawning"],
+        traits: [["plunder_trait_fawning", "prosperity2_magnate"]],
         metadata: { colonies: true },
       },
       {
@@ -16200,7 +16200,7 @@ export const allKingdoms = {
           "plunder_pendant",
           "plunder_pickaxe",
         ],
-        traits: ["plunder_trait_inspiring"],
+        traits: [["plunder_trait_inspiring", "plunder_fortunehunter"]],
       },
       {
         name: "Through the Swamp",
@@ -16218,7 +16218,7 @@ export const allKingdoms = {
           "plunder_tools",
         ],
         events: ["plunder_event_journey"],
-        traits: ["plunder_trait_patient"],
+        traits: [["plunder_trait_patient", "plunder_pilgrim"]],
       },
       {
         name: "Desert Dreams",
@@ -16235,7 +16235,7 @@ export const allKingdoms = {
           "plunder_mapmaker",
           "plunder_pendant",
         ],
-        traits: ["plunder_trait_reckless"],
+        traits: [["plunder_trait_reckless", "hinterlands2_nomads"]],
       },
       {
         name: "Viking Schemes",
@@ -16253,7 +16253,7 @@ export const allKingdoms = {
           "plunder_wealthyvillage",
         ],
         events: ["plunder_event_scrounge"],
-        traits: ["plunder_trait_rich"],
+        traits: [["plunder_trait_rich", "hinterlands2_berserker"]],
       },
       {
         name: "Dad's Rats",
@@ -16270,7 +16270,7 @@ export const allKingdoms = {
           "plunder_search",
           "plunder_shaman",
         ],
-        traits: ["plunder_trait_inherited"],
+        traits: [["plunder_trait_inherited", "darkages_rats"]],
         metadata: { shelters: true },
       },
       {
@@ -16289,7 +16289,7 @@ export const allKingdoms = {
           "plunder_trickster",
         ],
         events: ["plunder_event_invasion"],
-        traits: ["plunder_trait_tireless"],
+        traits: [["plunder_trait_tireless", "darkages_forager"]],
         metadata: { shelters: true },
       },
       {
@@ -16308,7 +16308,7 @@ export const allKingdoms = {
           "plunder_search",
         ],
         events: ["adventures_event_ferry"],
-        traits: ["plunder_trait_patient"],
+        traits: [["plunder_trait_patient", "adventures_artificer"]],
       },
       {
         name: "Rush Job",
@@ -16326,7 +16326,7 @@ export const allKingdoms = {
           "plunder_tools",
         ],
         events: ["plunder_event_rush"],
-        traits: ["plunder_trait_shy"],
+        traits: [["plunder_trait_shy", "adventures_winemerchant"]],
       },
       {
         name: "City Builders",
@@ -16344,7 +16344,7 @@ export const allKingdoms = {
           "plunder_tools",
         ],
         landmarks: ["empires_landmark_museum"],
-        traits: ["plunder_trait_nearby"],
+        traits: [["plunder_trait_nearby", "empires_patricianemporium"]],
       },
       {
         name: "Plenty",
@@ -16362,7 +16362,7 @@ export const allKingdoms = {
           "plunder_wealthyvillage",
         ],
         events: ["plunder_event_prosper"],
-        traits: ["plunder_trait_friendly"],
+        traits: [["plunder_trait_friendly", "plunder_figurine"]],
       },
       {
         name: "Night of the Loot",
@@ -16379,7 +16379,7 @@ export const allKingdoms = {
           "plunder_sackofloot",
           "plunder_taskmaster",
         ],
-        traits: ["plunder_trait_pious"],
+        traits: [["plunder_trait_pious", "plunder_taskmaster"]],
       },
       {
         name: "Skeleton Isle",
@@ -16397,7 +16397,7 @@ export const allKingdoms = {
           "plunder_secludedshrine",
         ],
         events: ["plunder_event_foray"],
-        traits: ["plunder_trait_hasty"],
+        traits: [["plunder_trait_hasty", "nocturne_idol"]],
       },
       {
         name: "Circle of Life",
@@ -16415,7 +16415,7 @@ export const allKingdoms = {
           "renaissance_swashbuckler",
         ],
         projects: ["renaissance_project_citadel"],
-        traits: ["plunder_trait_inspiring"],
+        traits: [["plunder_trait_inspiring", "renaissance_scholar"]],
       },
       {
         name: "Mirror Masters",
@@ -16433,7 +16433,7 @@ export const allKingdoms = {
           "renaissance_spices",
         ],
         events: ["plunder_event_mirror"],
-        traits: ["plunder_trait_fated"],
+        traits: [["plunder_trait_fated", "renaissance_spices"]],
       },
       {
         name: "Going Home",
@@ -16451,7 +16451,7 @@ export const allKingdoms = {
           "plunder_silvermine",
         ],
         ways: ["menagerie_way_wayofthesquirrel"],
-        traits: ["plunder_trait_cheap"],
+        traits: [["plunder_trait_cheap", "menagerie_gatekeeper"]],
       },
       {
         name: "Going Big",
@@ -16469,7 +16469,7 @@ export const allKingdoms = {
           "plunder_siren",
         ],
         events: ["plunder_event_peril"],
-        traits: ["plunder_trait_nearby"],
+        traits: [["plunder_trait_nearby", "menagerie_animalfair"]],
       },
       {
         name: "Shipmates",
@@ -16487,7 +16487,7 @@ export const allKingdoms = {
           "plunder_shaman",
         ],
         allies: ["allies_ally_cavedwellers"],
-        traits: ["plunder_trait_fawning"],
+        traits: [["plunder_trait_fawning", "allies_sycophant"]],
       },
       {
         name: "Buried and Sunk",
@@ -16505,7 +16505,7 @@ export const allKingdoms = {
           "plunder_maroon",
         ],
         events: ["plunder_event_bury"],
-        traits: ["plunder_trait_shy"],
+        traits: [["plunder_trait_shy", "allies_merchantcamp"]],
       },
     ],
   },
