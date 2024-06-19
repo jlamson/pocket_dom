@@ -3,6 +3,7 @@
 import { DominionKingdom } from "./dominion-kingdom";
 import { SetId } from "./set-id";
 import { allKingdoms } from "../dominion-content";
+import { SetComparators } from "./dominion-set";
 
 export class DominionKingdoms {
   static readonly kingdoms: { [key in SetId]?: DominionKingdom[] } =
@@ -16,18 +17,22 @@ export class DominionKingdoms {
       const uniqueKingdomIds = new Set(
         allKingdoms.map((kingdom) => kingdom.id)
       );
-      this._allKingdoms = Array.from(uniqueKingdomIds).map(
-        (id) =>
-          allKingdoms.find((kingdom) => kingdom.id === id) as DominionKingdom
-      );
+      this._allKingdoms = Array.from(uniqueKingdomIds)
+        .map(
+          (id) =>
+            allKingdoms.find((kingdom) => kingdom.id === id) as DominionKingdom
+        )
+        .sort((a, b) => SetComparators.setIdListsByOrder(a.setIds, b.setIds));
     }
     return this._allKingdoms;
   }
 
   public static getKingdomsForSets(setIds: SetId[]): DominionKingdom[] {
-    return this.getAllKingdoms().filter((kingdom) =>
-      setIds.every((setId) => kingdom.setIds.includes(setId))
-    );
+    return this.getAllKingdoms()
+      .filter((kingdom) =>
+        setIds.every((setId) => kingdom.setIds.includes(setId))
+      )
+      .sort((a, b) => SetComparators.setIdListsByOrder(a.setIds, b.setIds));
   }
 
   public static getKingdomById(kingdomId: string): DominionKingdom | null {

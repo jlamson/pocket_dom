@@ -1,6 +1,6 @@
 import { Boon } from "./boon";
 import { Card } from "./card";
-import { DominionSet } from "./dominion-set";
+import { DominionSet, SetComparators } from "./dominion-set";
 import { Event } from "./event";
 import { Landmark } from "./landmark";
 import { Project } from "./project";
@@ -41,22 +41,26 @@ export class DominionSets {
     return null;
   }
 
+  private static allSets: DominionSet[] | null = null;
   public static getAllSets(): DominionSet[] {
-    const sets: DominionSet[] = [];
-    const setIds = Object.keys(DominionSets.sets);
-    for (let setId of setIds) {
-      sets.push(DominionSets.sets[setId as SetId] as DominionSet);
+    if (DominionSets.allSets === null) {
+      DominionSets.allSets = (DominionSets.allSets = Object.keys(
+        DominionSets.sets
+      ).map((setId) => DominionSets.sets[setId as SetId] as DominionSet)).sort(
+        SetComparators.setsByOrder
+      );
     }
-    return sets;
+    return DominionSets.allSets;
   }
 
+  private static allCards: Card[] | null = null;
   public static getAllCards(): Card[] {
-    const cards: Card[] = [];
-    const cardIds = Object.keys(DominionSets.cards);
-    for (let cardId of cardIds) {
-      cards.push(DominionSets.cards[cardId]);
+    if (DominionSets.allCards === null) {
+      DominionSets.allCards = Object.keys(DominionSets.cards).map(
+        (cardId) => DominionSets.cards[cardId]
+      );
     }
-    return cards;
+    return DominionSets.allCards;
   }
 
   public static getSetById(setId: SetId): DominionSet {
