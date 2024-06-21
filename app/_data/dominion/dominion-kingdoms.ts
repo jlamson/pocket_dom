@@ -1,7 +1,7 @@
 `use client`;
 
 import { DominionKingdom } from "./dominion-kingdom";
-import { SetId } from "./set-id";
+import { FirstEditionSets, SetId } from "./set-id";
 import { allKingdoms } from "../dominion-content";
 import { SetComparators } from "./dominion-set";
 
@@ -27,10 +27,28 @@ export class DominionKingdoms {
     return this._allKingdoms;
   }
 
-  public static getKingdomsForSets(setIds: SetId[]): DominionKingdom[] {
+  public static getKingdomsForSets(
+    setIds: SetId[],
+    exact: boolean = false,
+    hideFirstEdition: boolean = false
+  ): DominionKingdom[] {
     return this.getAllKingdoms()
-      .filter((kingdom) =>
-        setIds.every((setId) => kingdom.setIds.includes(setId))
+      .filter((kingdom) => {
+        if (exact) {
+          return (
+            kingdom.setIds.length === setIds.length &&
+            kingdom.setIds.every((id) => setIds.includes(id))
+          );
+        } else {
+          return setIds.every((setId) => kingdom.setIds.includes(setId));
+        }
+      })
+      .filter(
+        (kingdom) =>
+          !(
+            hideFirstEdition &&
+            kingdom.setIds.some((id) => FirstEditionSets.includes(id))
+          )
       )
       .sort((a, b) => SetComparators.setIdListsByOrder(a.setIds, b.setIds));
   }
