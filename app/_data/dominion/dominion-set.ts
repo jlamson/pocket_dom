@@ -91,7 +91,28 @@ export module SetComparators {
 
     const bSorted = b.sort((a, b) => byOrder(a, b, orderFn));
     const aSorted = a.sort((a, b) => byOrder(a, b, orderFn));
-    // Sort by the earliest item first.
+    // check if the lists are equal
+    if (
+      aSorted.length == bSorted.length &&
+      aSorted.every((item, index) => bSorted[index] === item)
+    ) {
+      return 0;
+    }
+    // check if all items in a are in b. If so, a is earlier
+    if (
+      aSorted.length < bSorted.length &&
+      aSorted.every((item) => bSorted.includes(item))
+    ) {
+      return -1;
+    }
+    // check if all items in b are in a. If so, b is earlier
+    if (
+      bSorted.length < aSorted.length &&
+      bSorted.every((item) => aSorted.includes(item))
+    ) {
+      return 1;
+    }
+    // We now know that these lists aren't sub-sets or equals of eachother. Sort by the earliest item first.
     // If the earliest item is the same, sort by the next item, and so on.
     // In cases where one list is a subset of the other, the shorter list will be considered earlier.
     for (let i = 0; i < Math.min(aSorted.length, bSorted.length); i++) {
