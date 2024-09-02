@@ -4,39 +4,54 @@ export enum SetId {
   ALLIES = "allies",
   BASE_SET = "baseset",
   BASE_SET_2 = "baseset2",
+  BASE_SET_2_ADD = "baseset2add",
   CORNUCOPIA = "cornucopia",
   DARK_AGES = "darkages",
   EMPIRES = "empires",
   GUILDS = "guilds",
   GUILDSCORNUCOPIA = "guildscornucopia",
+  GUILDSCORNUCOPIA_2 = "guildscornucopia2",
+  GUILDSCORNUCOPIA_2_ADD = "guildscornucopia2add",
   HINTERLANDS = "hinterlands",
   HINTERLANDS_2 = "hinterlands2",
+  HINTERLANDS_2_ADD = "hinterlands2add",
   INTRIGUE = "intrigue",
   INTRIGUE_2 = "intrigue2",
+  INTRIGUE_2_ADD = "intrigue2add",
   MENAGERIE = "menagerie",
   NOCTURNE = "nocturne",
   PLUNDER = "plunder",
   PROMOS = "promos",
   PROSPERITY = "prosperity",
   PROSPERITY_2 = "prosperity2",
+  PROSPERITY_2_ADD = "prosperity2add",
   RENAISSANCE = "renaissance",
   SEASIDE = "seaside",
   SEASIDE_2 = "seaside2",
+  SEASIDE_2_ADD = "seaside2add",
+  PERSONAL = "personal",
+  ALL = "all",
+  TO_FORCE_RELOAD = "to force reload",
 }
 
 export const SetOrder: Record<SetId, number> = {
   [SetId.BASE_SET]: 1,
-  [SetId.BASE_SET_2]: 1.1,
+  [SetId.BASE_SET_2_ADD]: 1.1,
+  [SetId.BASE_SET_2]: 1.2,
   [SetId.INTRIGUE]: 2,
-  [SetId.INTRIGUE_2]: 2.1,
+  [SetId.INTRIGUE_2_ADD]: 2.1,
+  [SetId.INTRIGUE_2]: 2.2,
   [SetId.SEASIDE]: 3,
-  [SetId.SEASIDE_2]: 3.1,
+  [SetId.SEASIDE_2_ADD]: 3.1,
+  [SetId.SEASIDE_2]: 3.2,
   [SetId.ALCHEMY]: 4,
   [SetId.PROSPERITY]: 5,
-  [SetId.PROSPERITY_2]: 5.1,
+  [SetId.PROSPERITY_2_ADD]: 5.1,
+  [SetId.PROSPERITY_2]: 5.2,
   [SetId.CORNUCOPIA]: 6,
   [SetId.HINTERLANDS]: 7,
-  [SetId.HINTERLANDS_2]: 7.1,
+  [SetId.HINTERLANDS_2_ADD]: 7.1,
+  [SetId.HINTERLANDS_2]: 7.2,
   [SetId.DARK_AGES]: 8,
   [SetId.GUILDS]: 9,
   // Technically this combined set was released after Plunder, but for sorting
@@ -49,7 +64,12 @@ export const SetOrder: Record<SetId, number> = {
   [SetId.MENAGERIE]: 14,
   [SetId.ALLIES]: 15,
   [SetId.PLUNDER]: 16,
-  [SetId.PROMOS]: 999,
+  [SetId.GUILDSCORNUCOPIA_2]: 17,
+  [SetId.GUILDSCORNUCOPIA_2_ADD]: 17.1,
+  [SetId.PROMOS]: 1_000,
+  [SetId.PERSONAL]: 1_0001,
+  [SetId.ALL]: 1_002,
+  [SetId.TO_FORCE_RELOAD]: 1_003,
 };
 
 export const FirstEditionSets: SetId[] = [
@@ -58,11 +78,22 @@ export const FirstEditionSets: SetId[] = [
   SetId.SEASIDE,
   SetId.PROSPERITY,
   SetId.HINTERLANDS,
+  SetId.GUILDS,
+  SetId.CORNUCOPIA,
+  SetId.GUILDSCORNUCOPIA,
 ];
 
 export const NotFilterableSets: SetId[] = [
-  SetId.GUILDSCORNUCOPIA,
   SetId.PROMOS,
+  SetId.PERSONAL,
+  SetId.ALL,
+  SetId.TO_FORCE_RELOAD,
+  SetId.BASE_SET_2_ADD,
+  SetId.GUILDSCORNUCOPIA_2_ADD,
+  SetId.HINTERLANDS_2_ADD,
+  SetId.INTRIGUE_2_ADD,
+  SetId.PROSPERITY_2_ADD,
+  SetId.SEASIDE_2_ADD,
 ];
 
 export const SecondEditionSets: SetId[] = [
@@ -71,6 +102,7 @@ export const SecondEditionSets: SetId[] = [
   SetId.SEASIDE_2,
   SetId.PROSPERITY_2,
   SetId.HINTERLANDS_2,
+  SetId.GUILDSCORNUCOPIA_2,
 ];
 
 export const FirstToSecondEdition: Map<SetId, SetId> = new Map([
@@ -79,4 +111,7 @@ export const FirstToSecondEdition: Map<SetId, SetId> = new Map([
   [SetId.SEASIDE, SetId.SEASIDE_2],
   [SetId.PROSPERITY, SetId.PROSPERITY_2],
   [SetId.HINTERLANDS, SetId.HINTERLANDS_2],
+  [SetId.GUILDS, SetId.GUILDSCORNUCOPIA_2],
+  [SetId.CORNUCOPIA, SetId.GUILDSCORNUCOPIA_2],
+  [SetId.GUILDSCORNUCOPIA, SetId.GUILDSCORNUCOPIA_2],
 ]);
