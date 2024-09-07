@@ -1181,6 +1181,11 @@ export const allSets = {
     ],
     id: "alchemy",
   },
+  all: {
+    name: "All",
+    cards: [],
+    id: "all",
+  },
   allies: {
     name: "Allies",
     cards: [
@@ -10665,6 +10670,11 @@ export const allSets = {
     ],
     id: "plunder",
   },
+  personal: {
+    name: "Personal",
+    cards: [],
+    id: "personal",
+  },
   promos: {
     name: "Promos",
     cards: [
@@ -13510,6 +13520,11 @@ export const allSets = {
       },
     ],
     id: "seaside",
+  },
+  toforcereload: {
+    name: "To Force Reload",
+    cards: [],
+    id: "toforcereload",
   },
 };
 
