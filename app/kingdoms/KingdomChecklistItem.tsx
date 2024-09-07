@@ -47,9 +47,11 @@ export const KingdomChecklistItem: React.FC<{ kingdom: DominionKingdom }> = ({
           {(cardsBySet.get(set.setId) as Card[])
             .map((card) => {
               const traits = kingdom.traitIds;
+              const traitTargets = kingdom.traitSupplyIds;
               if (traits.length > 0) {
                 let traitedName;
-                traits.forEach(([traitId, cardId]) => {
+                traits.forEach((traitId, index) => {
+                  let cardId = traitTargets[index];
                   if (cardId == card.id) {
                     const trait = DominionSets.getTraitById(traitId);
                     traitedName = `${trait.name} ⇒ ${card.name}`;
@@ -111,7 +113,7 @@ export const KingdomChecklistItem: React.FC<{ kingdom: DominionKingdom }> = ({
         <CardNameList
           label="Trait(s)"
           cards={kingdom.traitIds.map(
-            (id) => DominionSets.getTraitById(id[0]).name
+            (id) => DominionSets.getTraitById(id).name
           )}
         />
       ) : null}
