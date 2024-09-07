@@ -31,7 +31,7 @@ export enum SetId {
   SEASIDE_2_ADD = "seaside2add",
   PERSONAL = "personal",
   ALL = "all",
-  TO_FORCE_RELOAD = "to force reload",
+  TO_FORCE_RELOAD = "toforcereload",
 }
 
 export const SetOrder: Record<SetId, number> = {

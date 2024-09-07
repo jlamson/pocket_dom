@@ -13966,6 +13966,9 @@ export const allKingdoms = {
       },
     ],
   },
+  all: {
+    kingdoms: [],
+  },
   allies: {
     kingdoms: [
       {
@@ -14963,6 +14966,9 @@ export const allKingdoms = {
         landmarks: ["empires_landmark_aqueduct"],
       },
     ],
+  },
+  baseset2add: {
+    kingdoms: [],
   },
   baseset: {
     kingdoms: [
@@ -17090,6 +17096,9 @@ export const allKingdoms = {
       },
     ],
   },
+  guildscornucopia2add: {
+    kingdoms: [],
+  },
   hinterlands2: {
     kingdoms: [
       {
@@ -17553,6 +17562,9 @@ export const allKingdoms = {
         allies: ["allies_ally_orderofmasons"],
       },
     ],
+  },
+  hinterlands2add: {
+    kingdoms: [],
   },
   hinterlands: {
     kingdoms: [
@@ -18481,6 +18493,9 @@ export const allKingdoms = {
         landmarks: ["empires_landmark_wolfden"],
       },
     ],
+  },
+  intrigue2add: {
+    kingdoms: [],
   },
   intrigue: {
     kingdoms: [
@@ -19499,6 +19514,9 @@ export const allKingdoms = {
         events: ["empires_event_banquet"],
       },
     ],
+  },
+  personal: {
+    kingdoms: [],
   },
   plunder: {
     kingdoms: [
@@ -20587,6 +20605,9 @@ export const allKingdoms = {
       },
     ],
   },
+  prosperity2add: {
+    kingdoms: [],
+  },
   prosperity: {
     kingdoms: [
       {
@@ -21631,6 +21652,9 @@ export const allKingdoms = {
       },
     ],
   },
+  seaside2add: {
+    kingdoms: [],
+  },
   seaside: {
     kingdoms: [
       {
@@ -21730,5 +21754,8 @@ export const allKingdoms = {
         ],
       },
     ],
+  },
+  toforcereload: {
+    kingdoms: [],
   },
 };
