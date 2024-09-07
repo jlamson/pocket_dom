@@ -53,6 +53,10 @@ export default function NavRoot({
         <AppShellNavbar p="md">
           <NavLink href="/turntracker" label="Turn Tracker" />
           <NavLink href="/kingdoms" label="Kingdoms" />
+          <NavLink
+            href="/kingdoms/checklist_summary"
+            label="Checklist Summary"
+          />
         </AppShellNavbar>
         <AppShellMain>{children}</AppShellMain>
       </AppShell>
