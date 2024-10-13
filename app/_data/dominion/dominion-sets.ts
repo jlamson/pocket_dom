@@ -10,6 +10,7 @@ import { Way } from "./way";
 import { Ally } from "./ally";
 import { Trait } from "./trait";
 import { allSets } from "../dominion-content";
+import { Prophecy } from "./prophecy";
 
 declare global {
   interface Window {
@@ -139,6 +140,14 @@ export class DominionSets {
     return card;
   }
 
+  public static getProphecyById(cardId: string): Prophecy {
+    const card = DominionSets.getCardById(cardId);
+    if (!(card instanceof Prophecy)) {
+      throw new Error(`Card id (${cardId}) does not refer to a prophecy`);
+    }
+    return card;
+  }
+
   private static createSets() {
     const setIds = Object.keys(allSets) as SetId[];
     const sets: { [key in SetId]?: DominionSet } = {};
@@ -160,7 +169,8 @@ export class DominionSets {
         set.ways,
         set.boons,
         set.allies,
-        set.traits
+        set.traits,
+        set.prophecies
       );
       for (let card of cardsFromSet) {
         cards[card.id] = card;

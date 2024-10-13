@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge, Checkbox, Group, Stack, Text } from "@mantine/core";
+import { Badge, Card, Checkbox, Group, Stack, Text } from "@mantine/core";
 import { useStoredState } from "../_hooks/useStorage";
 import { DominionKingdom, Metadata } from "../_data/dominion/dominion-kingdom";
 import { DominionSets } from "../_data/dominion/dominion-sets";
@@ -65,7 +65,22 @@ export const KingdomChecklistItem: React.FC<{ kingdom: DominionKingdom }> = ({
         </Text>
       ))}
       {kingdom.baneCardId ? (
-        <Text>Bane: {DominionSets.getCardById(kingdom.baneCardId).name}</Text>
+        <Text>
+          <b>Bane: </b>
+          {DominionSets.getCardById(kingdom.baneCardId).name}
+        </Text>
+      ) : null}
+      {kingdom.ferrymanCardId ? (
+        <Text>
+          <b>Ferryman: </b>
+          {DominionSets.getCardById(kingdom.ferrymanCardId).name}
+        </Text>
+      ) : null}
+      {kingdom.riverboatCardId ? (
+        <Text>
+          <b>Riverboat: </b>
+          {DominionSets.getCardById(kingdom.riverboatCardId).name}
+        </Text>
       ) : null}
       {kingdom.eventIds?.length > 0 ? (
         <CardNameList
@@ -91,6 +106,12 @@ export const KingdomChecklistItem: React.FC<{ kingdom: DominionKingdom }> = ({
           )}
         />
       ) : null}
+      {kingdom.obeliskCardId ? (
+        <Text>
+          <b>Obelisk: </b>
+          {DominionSets.getCardById(kingdom.obeliskCardId).name}
+        </Text>
+      ) : null}
       {kingdom.boonIds?.length > 0 ? (
         <CardNameList
           label="Boon(s)"
@@ -102,6 +123,12 @@ export const KingdomChecklistItem: React.FC<{ kingdom: DominionKingdom }> = ({
           label="Way(s)"
           cards={kingdom.wayIds.map((id) => DominionSets.getWayById(id).name)}
         />
+      ) : null}
+      {kingdom.wayofthemouseCardId ? (
+        <Text>
+          <b>Way of the Mouse: </b>
+          {DominionSets.getCardById(kingdom.wayofthemouseCardId).name}
+        </Text>
       ) : null}
       {kingdom.allyIds?.length > 0 ? (
         <CardNameList
@@ -116,6 +143,20 @@ export const KingdomChecklistItem: React.FC<{ kingdom: DominionKingdom }> = ({
             (id) => DominionSets.getTraitById(id).name
           )}
         />
+      ) : null}
+      {kingdom.prophecyIds?.length > 0 ? (
+        <CardNameList
+          label="Prophecy(s)"
+          cards={kingdom.prophecyIds.map(
+            (id) => DominionSets.getProphecyById(id).name
+          )}
+        />
+      ) : null}
+      {kingdom.approachingarmyCardId ? (
+        <Text>
+          <b>Approaching Army: </b>{" "}
+          {DominionSets.getCardById(kingdom.approachingarmyCardId).name}
+        </Text>
       ) : null}
     </Stack>
   );

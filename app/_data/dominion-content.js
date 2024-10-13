@@ -21989,7 +21989,7 @@ export const allKingdoms = {
         ],
         prophecies: ["risingsun_prophecy_bureaucracy"],
         events: ["risingsun_event_foresight"],
-        riverboatActionCard: "hinterlands2_witcheshut",
+        riverboatActionCard: "hinterlands2_witchshut",
       },
       {
         name: "Pandemic",
