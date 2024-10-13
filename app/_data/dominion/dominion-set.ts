@@ -1,3 +1,4 @@
+import { Prophecy } from "./prophecy";
 import { Ally } from "./ally";
 import { Boon } from "./boon";
 import { SupplyCard } from "./supply-card";
@@ -20,7 +21,8 @@ export class DominionSet {
     readonly boons: Boon[],
     readonly ways: Way[],
     readonly allies: Ally[],
-    readonly traits: Trait[]
+    readonly traits: Trait[],
+    readonly prophecies: Prophecy[]
   ) {}
 
   public static fromJson(json: any) {
@@ -36,7 +38,8 @@ export class DominionSet {
       (json["boons"] || []).map(Boon.fromJson),
       (json["ways"] || []).map(Way.fromJson),
       (json["allies"] || []).map(Ally.fromJson),
-      (json["traits"] || []).map(Trait.fromJson)
+      (json["traits"] || []).map(Trait.fromJson),
+      (json["prophecies"] || []).map(Prophecy.fromJson)
     );
   }
 }

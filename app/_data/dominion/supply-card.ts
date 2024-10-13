@@ -1,7 +1,7 @@
-import {Card} from "./card"
-import {CardType} from "./card-type"
-import {Cost} from "./cost"
-import {SetId} from "./set-id"
+import { Card } from "./card";
+import { CardType } from "./card-type";
+import { Cost } from "./cost";
+import { SetId } from "./set-id";
 
 export class SupplyCard implements Card {
   constructor(
@@ -21,12 +21,14 @@ export class SupplyCard implements Card {
     readonly isLiaison: boolean,
     readonly isMultiDrawer: boolean,
     readonly isNight: boolean,
+    readonly isOmen: boolean,
     readonly isReaction: boolean,
     readonly isReserve: boolean,
+    readonly isShadow: boolean,
     readonly isTrashing: boolean,
     readonly isTreasure: boolean,
-    readonly isVictory: boolean) {
-  }
+    readonly isVictory: boolean
+  ) {}
 
   public isOfType(cardType: CardType) {
     switch (cardType) {
@@ -35,27 +37,31 @@ export class SupplyCard implements Card {
       case CardType.ACTION_SUPPLIER:
         return this.isActionSupplier;
       case CardType.ATTACK:
-        return this.isAttack
+        return this.isAttack;
       case CardType.BUY_SUPPLIER:
-        return this.isBuySupplier
+        return this.isBuySupplier;
       case CardType.DRAWER:
-        return this.isDrawer
+        return this.isDrawer;
       case CardType.DOOM:
-        return this.isDoom
+        return this.isDoom;
       case CardType.DURATION:
-        return this.isDuration
+        return this.isDuration;
       case CardType.FATE:
         return this.isFate;
       case CardType.LIAISON:
         return this.isLiaison;
       case CardType.MULTI_DRAWER:
-        return this.isMultiDrawer
+        return this.isMultiDrawer;
       case CardType.NIGHT:
         return this.isNight;
+      case CardType.OMEN:
+        return this.isOmen;
       case CardType.REACTION:
         return this.isReaction;
       case CardType.RESERVE:
         return this.isReserve;
+      case CardType.SHADOW:
+        return this.isShadow;
       case CardType.TRASHING:
         return this.isTrashing;
       case CardType.TREASURE:
@@ -85,10 +91,13 @@ export class SupplyCard implements Card {
       json["isLiaison"] || false,
       json["isMultiDrawer"] || false,
       json["isNight"] || false,
+      json["isOmen"] || false,
       json["isReaction"] || false,
       json["isReserve"] || false,
+      json["isShadow"] || false,
       json["isTrashing"] || false,
       json["isTreasure"] || false,
-      json["isVictory"] || false)
+      json["isVictory"] || false
+    );
   }
 }
