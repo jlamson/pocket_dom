@@ -12790,7 +12790,7 @@ export const allSets = {
         setId: "risingsun",
       },
       {
-        name: "River Boat",
+        name: "Riverboat",
         cost: { treasure: 3, debt: 0 },
         isAction: true,
         isDuration: true,
@@ -21810,7 +21810,7 @@ export const allKingdoms = {
         events: ["risingsun_event_amass"],
       },
       {
-        name: "Invation Fleet",
+        name: "Invasion Fleet",
         sets: ["risingsun", "seaside2"],
         supply: [
           "risingsun_alley",
@@ -21865,7 +21865,7 @@ export const allKingdoms = {
         riverboatActionCard: "alchemy_apprentice",
       },
       {
-        name: "Lazy Misceif",
+        name: "Lazy Mischief",
         sets: ["risingsun", "alchemy"],
         supply: [
           "risingsun_alley",
@@ -22048,7 +22048,7 @@ export const allKingdoms = {
         events: ["adventures_event_ball"],
       },
       {
-        name: "Heros Journey",
+        name: "Hero's Journey",
         sets: ["risingsun", "adventures"],
         supply: [
           "risingsun_aristocrat",
@@ -22270,7 +22270,7 @@ export const allKingdoms = {
         supply: [
           "risingsun_daimyo",
           "risingsun_litter",
-          "risingsun_ricebroker",
+          "risingsun_rice",
           "risingsun_rivershrine",
           "risingsun_rootcellar",
           "plunder_cabinboy",
