@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge, Card, Checkbox, Group, Stack, Text } from "@mantine/core";
+import { Badge, Checkbox, Group, Stack, Text } from "@mantine/core";
 import { useStoredState } from "../_hooks/useStorage";
 import { DominionKingdom, Metadata } from "../_data/dominion/dominion-kingdom";
 import { DominionSets } from "../_data/dominion/dominion-sets";
